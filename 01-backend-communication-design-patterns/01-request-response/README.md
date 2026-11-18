@@ -37,7 +37,7 @@ Request–Response communication is not instantaneous. Both network transmission
 - **T1 — Server processing:** Server receives the request, validates it, executes business logic, and potentially communicates with databases or external services.
 - **T2 — Response received:** Server sends the result back, and the client receives and handles it.
 
-### My Request–Response Diagram
+### Request–Response Diagram
 
 ![Client sends request at t0 and server replies at t2; second round trip t10 → t12](./images/request-response.png)
 
@@ -93,14 +93,14 @@ When implementing request–response communication in distributed systems, consi
 
 Use Request–Response when the caller needs a direct result.
 
-Examples:
-
-- Authentication and authorization.
-- Fetching user or product information.
-- CRUD operations.
-- Payment authorization.
-- Retrieving account balances.
-- Synchronous service-to-service operations.
+| Use case                              | Example                          | Technologies commonly used                                       |
+| ------------------------------------- | -------------------------------- | ---------------------------------------------------------------- |
+| Authentication and authorization      | Login, token validation          | HTTP, OAuth 2.0, OpenID Connect, gRPC interceptors               |
+| Fetching user or product information  | Profile pages, search            | HTTP/REST, GraphQL, gRPC                                         |
+| CRUD operations                       | Create/read/update/delete records | REST, GraphQL mutations, gRPC                                    |
+| Payment authorization                 | Approve or decline a charge      | HTTPS payment APIs (Stripe, PayPal), 3-D Secure                  |
+| Retrieving account balances           | Balance inquiries                | REST/GraphQL queries, SQL, Redis GET                             |
+| Synchronous service-to-service calls  | Internal APIs between services  | gRPC, REST, Apache Thrift                                        |
 
 For long-running or background operations, consider asynchronous alternatives such as Message Queues, Publish–Subscribe, and Event-Driven Architecture.
 
